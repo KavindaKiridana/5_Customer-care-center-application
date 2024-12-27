@@ -1,0 +1,132 @@
+.container,
+.container-fluid {
+  background-color: white;
+}
+
+.bar {
+  background-color: whitesmoke;
+  border-radius: 20px;
+  box-shadow: 20px 20px 20px rgba(20, 11, 34, 0.536);
+}
+
+/* Uncomment and correct image background path */
+.imag {
+  background-image: url("images/SLTlogo.png");
+  background-size: contain; /* Ensures the entire image is visible */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image within the element */
+  width: 263px;
+  height: 107px;
+}
+
+@media (max-width: 768px) {
+  .image01 {
+    width: 197px; /* Adjusted size for medium screens */
+    height: 80px; /* Adjusted size for medium screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .image01 {
+    width: 131px; /* Adjusted size for small screens */
+    height: 53px; /* Adjusted size for small screens */
+  }
+}
+
+@media (max-width: 390px) {
+  .image01 {
+    width: 100px; /* Adjusted size for small screens */
+    height: 40px; /* Adjusted size for small screens */
+  }
+}
+
+.text1 {
+  font-size: 32px; /* Updated font size */
+  color: #0C4D82;
+  font-style: italic;
+  font-weight: 600; /* Semi-bold */
+  font-family: 'Inter', sans-serif; /* Updated font family */
+  text-align: left;
+  padding-left: 20px; /* Adjust the padding-left value as needed */
+  padding-top: 30px; /* Adjust the padding-top value as needed */
+}
+
+@media (max-width: 980px) {
+  .text1 {
+    font-size: 1.5rem;
+    padding-top: 0px; /* Adjust the padding-top value as needed */
+  }
+}
+
+@media (max-width: 576px) {
+  .text1 {
+    font-size: 1.2rem;
+    line-height: 1;
+    padding-top: 0px; /* Adjust the padding-top value as needed */
+  }
+}
+
+@media (max-width: 390px) {
+  .text1 {
+    font-size: 0.6rem;
+  }
+}
+
+/* header finish here */
+
+.custombox {
+  background-color: #136fba;
+  border: 1px solid #136fba;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  height: 160px;
+  position: relative;
+}
+
+.custom-green-text {
+  color: #12eb12;
+}
+
+.img2, .img3 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.crow2 {
+  font-size: 15px;
+}
+
+.color1 {
+  color: #000000;
+  background-color: rgb(218, 225, 233);
+}
+
+.color2 {
+  color: black;
+}
+
+.nav-item {
+  margin-right: 100px;
+}
+
+.bg-green {
+  background-color: #29a746;
+}
+
+.bg-Ash {
+  background-color: #d9d9d9;
+}
+
+.bg-blu {
+  background-color: #01ffe5;
+}
+
+.bg-blue2 {
+  background-color: #07B2E5;
+}
+
+.nav-link.navSelected {
+  background-color: rgb(5, 103, 5) !important;
+  color: rgb(255, 255, 255) !important;
+}

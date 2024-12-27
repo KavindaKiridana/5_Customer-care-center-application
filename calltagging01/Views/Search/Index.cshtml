@@ -1,0 +1,251 @@
+﻿@model IEnumerable<calltagging01.Models.Call>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Tagging Detail Report</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+
+<body>
+    <partial name="_Alert" />
+    <div class="col-12">
+        <!-- Responsive Header -->
+        <div class="container-fluid ">
+            <header class="p-3 mb-3 border-bottom ">
+                <div class="bar container-fluid  p-1">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start ">
+                        <div class=" d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+                            <img src="~/images/sltlogo.png" class="image01" />
+                        </div>
+                        <!-- <div class="dropdown text-end">
+                        <a href="#"
+                            class=" link-body-emphasis text-decoration-none dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://github.com/mdo.png" alt="mdo"
+                                width="60rem" height="60rem"
+                                class="rounded-circle">
+                        </a>
+                        <ul class="dropdown-menu text-small">
+                            <li><a class="dropdown-item" href="#">New
+                                    project...</a></li>
+                            <li><a class="dropdown-item"
+                                    href="#">Settings</a></li>
+                            <li><a class="dropdown-item"
+                                    href="#">Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Sign
+                                    out</a></li>
+                        </ul>
+                    </div> -->
+                        <div class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                            <span class="text1">Contact Center Agent Call
+                                Log</span>
+                        </div>
+
+                    </div>
+                </div>
+            </header>
+            <!--------------------------------------form---------------------------------------->
+            <form asp-action="Index" asp-controller="Search" method="post">
+                <!-- Connection Type and Category Section -->
+
+               
+                <!-- Report Date Section -->
+                <div class="container">
+                    <div class="card custom-card">
+                        <div class="card-body text-center rounded-3">
+                            <h4 class="card-title text-light">Report Date</h4>
+                            <div class="row d-flex justify-content-center align-items-center">
+                                <div class="col-md-4">
+                                    <label for="fromDate" class="me-2">From</label>
+                                    <input type="date" name="fromDate" class="form-control custom-input" id="fromDate">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="toDate" class="me-2">To</label>
+                                    <input type="date" name="toDate" class="form-control custom-input" id="toDate">
+                                </div>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 mb-3 color1 h6 cust_margin">
+@*                     <div class="align-middle fw-bold fs-4 text-black">Connection Type:</div>
+ *@                    <div class="d-flex flex-wrap">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input ms-5" type="radio" id="inlineCheckbox1" name="ConnectionType" value="Fiber">
+                            <label class="form-check-label ms-2" for="inlineCheckbox1">Fiber</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input ms-5" type="radio" id="inlineCheckbox2" name="ConnectionType" value="4G LTE Postpaid">
+                            <label class="form-check-label ms-2" for="inlineCheckbox2">4G LTE Postpaid</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input ms-5" type="radio" id="inlineCheckbox3" name="ConnectionType" value="4G LTE Prepaid">
+                            <label class="form-check-label ms-2" for="inlineCheckbox3">4G LTE Prepaid</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input ms-5" type="radio" id="inlineCheckbox4" name="ConnectionType" value="Mega/Copper">
+                            <label class="form-check-label ms-2" for="inlineCheckbox4">Mega/Copper</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input ms-5" type="radio" id="inlineCheckbox5" name="ConnectionType" value="ALL">
+                            <label class="form-check-label ms-2" for="inlineCheckbox5">All</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category Section -->
+                <div class="d-flex justify-content-center  cust_margin">
+                    <div class="col-12  rounded-3 shadow  bg-blue2 h6">
+                        <div class="d-flex flex-wrap justify-content-center">
+                            <div class="form-check form-check-inline mx-4">
+                                <input class="form-check-input ms-3" type="radio" name="Category" id="inlineRadio1" value="Broadband">
+                                <label class="form-check-label ms-2" for="inlineRadio1">Broadband</label>
+                            </div>
+                            <div class="form-check form-check-inline mx-4">
+                                <input class="form-check-input ms-3" type="radio" name="Category" id="inlineRadio2" value="Peo tv">
+                                <label class="form-check-label ms-2" for="inlineRadio2">Peo tv</label>
+                            </div>
+                            <div class="form-check form-check-inline mx-4">
+                                <input class="form-check-input ms-3" type="radio" name="Category" id="inlineRadio3" value="Voice">
+                                <label class="form-check-label ms-2" for="inlineRadio3">Voice</label>
+                            </div>
+                            <div class="form-check form-check-inline mx-4">
+                                <input class="form-check-input ms-3" type="radio" name="Category" id="inlineRadio4" value="Billing">
+                                <label class="form-check-label ms-2" for="inlineRadio4">Billing</label>
+                            </div>
+                            <div class="form-check form-check-inline mx-4">
+                                <input class="form-check-input ms-3" type="radio" name="Category" id="inlineRadio5" value="Other Services">
+                                <label class="form-check-label ms-2" for="inlineRadio5">Other service</label>
+                            </div>
+                            <div class="form-check form-check-inline mx-4">
+                                <input class="form-check-input ms-3" type="radio" name="Category" id="inlineRadio6" value="ALL">
+                                <label class="form-check-label ms-2" for="inlineRadio6">All</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-6 d-flex justify-content-center">
+                        <button type="submit" class="btn custom-button">Search</button>
+                    </div>
+                </div>
+</form>
+<!--------------------------------------form---------------------------------------->
+
+<style>
+    .custom-bg-color {
+        background-color: #f8d7da; 
+    }          
+</style>
+
+<!-- Table Section -->
+<div class="container p-6 mt-5">
+    <div class="row justify-content-center">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                                <th>
+                                    No
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AgentPhone)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ConnectionType)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Category)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Problems)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.OccurredAt)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.IssueType)
+                                </th>
+                </tr>
+            </thead>
+            <tbody>
+                            @{
+                                int i = 1;
+                            }
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @i
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AgentPhone)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ConnectionType)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Category)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Problems)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.OccurredAt)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IssueType)
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="container d-flex justify-content-end ">
+    <div class="col text-center d-grid gap-2 col-3 ">
+        @* <button type="button" class="btn btn-success rounded-pill excell_file"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .85rem;">
+           <h5> Export as Excell file </h5>
+        </button> *@
+                    <button type="button" class="btn btn-success rounded-pill excell_file"
+                           
+                            onclick="location.href='@Url.Action("ExportToExcel", "Search")'">
+                        <h6> Export as Excel file </h6>
+                    </button>
+    </div>
+</div>
+    </div>
+    
+    
+ </div>
+
+   <div class="row">
+        <br />
+       <br />
+       
+   </div>
+
+    
+
+@*     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+ *@
+        <script src="~/js/bootstrap.bundle.min.js"></script>
+
+        
+</body>
+
+</html>

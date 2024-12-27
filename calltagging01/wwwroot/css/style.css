@@ -1,0 +1,247 @@
+.container,
+.container-fluid {
+  background-color: white;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+/* header */
+
+.bar {
+  
+  background-color: whitesmoke;
+  border-radius: 20px;
+  box-shadow: 20px 20px 20px rgba(20, 11, 34, 0.536);
+}
+
+.image01 {
+  background-size: contain; /* Ensures the entire image is visible */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image within the element */
+  width: 263px; /* Correct syntax for width */
+  height: 107px; /* Correct syntax for height */
+}
+
+@media (max-width: 768px) {
+  .image01 {
+    width: 197px; /* Adjusted size for medium screens */
+    height: 80px; /* Adjusted size for medium screens */
+    
+    
+  }
+}
+
+@media (max-width: 576px) {
+  .image01 {
+    width: 131px; /* Adjusted size for small screens */
+    height: 53px; /* Adjusted size for small screens */
+    
+  }
+}
+@media (max-width: 390px) {
+  .image01 {
+    width: 100px; /* Adjusted size for small screens */
+    height: 40px; /* Adjusted size for small screens */
+  }
+}
+.text1 {
+  font-size: 32px; /* Updated font size */
+  color: #0C4D82;
+  font-style: italic;
+  font-weight: 600; /* Semi-bold */
+  font-family: 'Inter', sans-serif; /* Updated font family */
+  text-align: left; /* Ensure the text is aligned to the left */
+  
+  padding-left: 20px; /* Adjust the padding-left value as needed */
+  padding-top:30px; /* Adjust the padding-top value as needed */
+  
+  
+}
+
+@media (max-width: 980px) {
+  .text1 {
+    font-size: 1.5rem;
+     padding-top: 0px; /* Adjust the padding-top value as needed */
+  }
+}
+
+@media (max-width: 576px) {
+  .text1 {
+      font-size: 1.2rem;
+      line-height: 1;
+      padding-top: 0px; /* Adjust the padding-top value as needed */
+  }
+}
+@media (max-width: 390px) {
+  .text1 {
+      font-size: 0.6rem;
+  }
+}
+
+
+
+/* styles.css */
+.logo1 {
+  width: 200px;
+  /* Adjust the width of the logo */
+  height: auto;
+  /* Maintain aspect ratio */
+  margin-right: 20px;
+  /* Add margin to separate from other content */
+}
+
+.profile_dropdown {
+  padding-right: 20px;
+  padding-top: 20px;
+}
+
+.custombox {
+  background-color: #136fba;
+  /* Light gray background */
+  border: 1px solid #136fba;
+  /* Gray border */
+  border-radius: 8px;
+  /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* Shadow for visual depth */
+  height: 160px;
+  /* Maintain aspect ratio */
+}
+
+.custombox1 {
+  background-color: #136fba;
+  /* Light gray background */
+  /*border: 1px solid #647481;*/
+  /* Gray border */
+  border-radius: 8px;
+  /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* Shadow for visual depth */
+  height: 100px;
+  /* Maintain aspect ratio */
+}
+
+.custom-green-text {
+  color: #12eb12;
+  /* Light green color */
+}
+
+.img2 {
+  position: absolute;
+  /* Use absolute positioning */
+  top: 10px;
+  /* Position from the top */
+  right: 10px;
+  /* Position from the right */
+}
+
+
+
+.img3 {
+  position: absolute;
+  /* Use absolute positioning */
+  top: 10px;
+  /* Position from the top */
+  right: 10px;
+  /* Position from the right */
+}
+
+.custombox {
+  position: relative;
+  /* Parent container with relative positioning */
+  height: 100px;
+}
+
+
+
+.crow2 {
+  font-size: 15px;
+  /* Adjust the size as needed */
+}
+
+
+
+
+
+
+.color1 {
+  color: #000000;
+  background-color: #DAFAE9;
+}
+
+
+
+.nav-item {
+  margin-right: 100px; /* Space between items */
+}
+
+.bg-green {
+  background-color: #29a746;
+}
+
+.bg-Ash {
+  background-color: #d9d9d9;
+}
+
+.bg-blu {
+  background-color: #01ffe5;
+}
+
+.bg-blue2 {
+  background-color: #07B2E5;
+}
+
+.nav-link.navSelected {
+  background-color: rgb(5, 103, 5) !important;
+  color: rgb(255, 255, 255) !important;
+}
+
+
+/* second date */
+.custom-card {
+  background-color: #0156A6;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.custom-input {
+  background-color: white;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+.custom-button {
+  background-color: #28a745;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  border: none;
+}
+
+.custom-button:hover {
+  background-color: #218838;
+}
+
+.table thead th {
+  background-color: #0F3B7A;
+  color: #ffffff;
+}
+.excell_file{
+  background-color: #4CB647;
+  color: #ffffff;
+}
+.custom-radio + .form-check-label:before{
+  transition: background-color 0.3s, border-color 0.3s;
+}
+.custom-radio:checked + .form-check-label:after{
+  background-color: #ffffff;
+}
+.custom-radio:checked + .form-check-label:after{
+  background-color: #000;
+}
+.cust_margin{
+  margin: 2rem 0;
+
+
+}

@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Tagging Module</title>
+
+ 
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <partial name="_Alert" />
+    <div class="col-12">
+        <!-- Responsive Header -->
+        <div class="container-fluid ">
+            <header class="p-3 mb-5 ">
+                <div class="bar container-fluid  p-1">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start ">
+                        <div class=" d-flex align-items-center mb-lg-0 link-body-emphasis text-decoration-none">
+                            <img src="~/images/sltlogo.png" class="image01" />
+                        </div>
+                        <div class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                            <span class="text1">Contact Center Agent Call Log</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <!-- Responsive Login -->
+        <div class="container justify-content-center">
+            <div class="container col-6 p-5 shadow-sm rounded-2 color1">
+                <form style="width: 90%; font-weight: bold;" method="post">
+                    <div class="form-group pb-3">
+                        <label for="AgentNumber">Service Number</label>
+                        <input name="AgentNumber" type="text" class="form-control" id="firstName" placeholder="Please enter your service number" required/>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label for="password">Password</label>
+                        <div class="input-group">
+                            <input name="Password" type="password" class="form-control" id="password" placeholder="Please enter your password" required/>
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword" style="background-color: rgb(253, 254, 255); outline:none">
+                                <i class="fa fa-eye" id="togglePasswordIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <button type="submit" class="btn btn-success btn-block bg-colo" style="width: 100%; border-radius: 5rem;">
+                            Sign in
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            const passwordField = document.getElementById('password');
+            const toggleIcon = document.getElementById('togglePasswordIcon');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        });
+    </script>
+
+    <!-- FontAwesome for the eye icon -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿
+@if (TempData["error"] != null)
+{
+    <script src="~/js/sweetalert2@11.js"></script>
+
+    <script>
+        Swal.fire({
+            icon: "Error",
+           title: "Submited not sucsess",
+            text: "@TempData["error"]",
+            footer: '<a href="#">Why do I have this issue?</a>'
+        });
+    </script>
+}
+@if (TempData["success"] != null)
+{
+    <script src="~/js/sweetalert2@11.js"></script>
+    <script>
+        Swal.fire({
+            title: "Success",
+            text: "@TempData["success"]",
+            icon: "success"
+        }).then((result) => {
+            // Check if the user clicked "OK" and the message matches the condition
+            if (result.isConfirmed && "@TempData["success"]" === "Call added successfully") {
+                // Refresh the page or redirect to the same action (Calls/Create)
+                var agentNumber = "@TempData["userName"]"; // Assuming userName is available in your view
+                window.location.href = '@Url.Action("PageRefresh", "Calls")' + '?agentNumber=' + encodeURIComponent(agentNumber);
+
+               @*  window.location.href = '@Url.Action("PageRefresh", "Calls")'; *@
+            }
+        });
+    </script>
+}
+
+
+
+
+
+

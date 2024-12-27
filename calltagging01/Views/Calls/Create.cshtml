@@ -1,0 +1,608 @@
+﻿@inject IHttpContextAccessor HttpContextAccessor
+@model calltagging01.Models.Call;
+@{
+    ViewData["Title"] = "Call Tagging Module";
+    Layout = null;
+}
+
+<!--header links-->
+<link rel="stylesheet" href="~/css/style - Copy.css">
+<link rel="stylesheet" href="~/css/custom.css">
+<link rel="stylesheet" href="~/css/bootstrap.min.css">
+
+<!------------------------>
+<!-- Responsive Header -->
+<!-- Responsive Header -->
+<div class="container-fluid ">
+    <header class="p-3  ">
+        <div class="bar container-fluid  p-1">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start ">
+                <div class=" d-flex align-items-center mb-lg-0 link-body-emphasis text-decoration-none">
+                   <img src="~/images/sltlogo.png" class="image01" />
+
+                </div>
+                <div class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <span class="text1">
+                        Contact Center Agent Call
+                        Log
+                    </span>
+                </div>
+                <!-- History button aligned to the right -->
+              @*   <div class="text-end">
+                    <a asp-controller="Search" asp-action="Index" type="button" class="btn btn-outline-secondary d-flex align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-history me-1" viewBox="0 0 16 16">
+                            <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7 7 0 0 0-.985-.299l.219-.976q.576.129 1.126.342zm1.37.71a7 7 0 0 0-.439-.27l.493-.87a8 8 0 0 1 .979.654l-.615.789a7 7 0 0 0-.418-.302zm1.834 1.79a7 7 0 0 0-.653-.796l.724-.69q.406.429.747.91zm.744 1.352a7 7 0 0 0-.214-.468l.893-.45a8 8 0 0 1 .45 1.088l-.95.313a7 7 0 0 0-.179-.483m.53 2.507a7 7 0 0 0-.1-1.025l.985-.17q.1.58.116 1.17zm-.131 1.538q.05-.254.081-.51l.993.123a8 8 0 0 1-.23 1.155l-.964-.267q.069-.247.12-.501m-.952 2.379q.276-.436.486-.908l.914.405q-.24.54-.555 1.038zm-.964 1.205q.183-.183.35-.378l.758.653a8 8 0 0 1-.401.432z" />
+                            <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z" />
+                            <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5" />
+                        </svg>
+                        History
+                    </a>
+                </div> *@
+            </div>
+        </div>
+    </header>
+</div>
+
+<!-- Boxes -->
+<div class="col-12">
+    <div class="row p-3 justify-content-center align-items-center">
+        <div class="col-lg-3 col-12">
+            <div class="p-3">
+                <!-- calling number box 1 -->
+                <div class="container2 col-12 custombox p-3 ">
+                    <h2 class="fs-6 fw-bold crow p-7 pl justify-content-center align-items-center text-white ">
+                        Calling Number :
+                    </h2>
+                    <div class="img2 p-lg-2">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             width="40"
+                             height="40"
+                             fill="currentColor"
+                             class="bi bi-telephone"
+                             viewBox="0 0 16 16">
+                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+                        </svg>
+                    </div>
+                    <h2 class="fs-6 fw-bold crow p-7 justify-content-center align-items-center text-white">
+                        0719512080
+                    </h2>
+                    <h2 class="fs-7 crow2 p-7 text-center custom-green-text">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             width="16"
+                             height="16"
+                             fill="currentColor"
+                             class="bi bi-arrow-down-left"
+                             viewBox="2 2 16 16">
+                            <path fill-rule="evenodd"
+                                  d="M2 13.5a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 0-1H3.707L13.854 2.854a.5.5 0 0 0-.708-.708L3 12.293V7.5a.5.5 0 0 0-1 0z" />
+                        </svg>
+                        INCOMING
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <!--Number box 2-->
+        <div class="col-lg-3 col-12">
+            <div class="p-3">
+                <div class="container2 col-12 custombox p-3 bg-green">
+                    <h2 class="fs-6 fw-bold crow p-7 pl justify-content-center align-items-center" style="">
+                        SLT Number :
+                    </h2>
+                    <div class="img2 p-lg-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-telephone-inbound" viewBox="0 0 16 16">
+                            <path d="M15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0m-12.2 1.182a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+                        </svg>
+                    </div>
+                    <h2 id="phoneNumber" class="fs-6 fw-bold crow p-7 justify-content-center align-items-center text-white" onclick="editNumber()">
+                        0719512080
+                    </h2>
+                    <h2 class="fs-7 crow2 p-7 text-center custom-green-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-left" viewBox="2 2 16 16">
+                            <path fill-rule="evenodd" d="M2 13.5a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 0-1H3.707L13.854 2.854a.5.5 0 0 0-.708-.708L3 12.293V7.5a.5.5 0 0 0-1 0z" />
+                        </svg>
+                        INCOMING
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <!-- calling number box 3-->
+        <div class="col-lg-3 col-12">
+            <div class="p-3">
+                <div class="col-12 custombox p-3 bg-Ash">
+                    <h2 class="fs-6 fw-bold crow p-7 pl justify-content-center align-items-center text-black ">
+                        Call ID :
+                    </h2>
+                    <div class="img3 pe-4">
+                        <img src="~/images/Rectangle 9 (1).png"
+                             alt="image4"
+                             width="40"
+                             height="60"
+                             class="img4"
+                             viewBox="0 0 20 20">
+                    </div>
+                    <h2 class="fs-6 fw-bold crow p-7 justify-content-center align-items-center text-black">
+                        Bhjik123
+                    </h2>
+                    <h2 class="fs-7 crow2 p-7 text-center custom-green-text">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             width="16"
+                             height="16"
+                             fill="currentColor"
+                             class="bi bi-arrow-down-left"
+                             viewBox="2 2 16 16">
+                            <path fill-rule="evenodd"
+                                  d="M2 13.5a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 0-1H3.707L13.854 2.854a.5.5 0 0 0-.708-.708L3 12.293V7.5a.5.5 0 0 0-1 0z" />
+                        </svg>
+                        INCOMING
+                    </h2>
+                </div>
+            </div>
+
+        </div>
+        <!--  Agent Caller ID  box 4-->
+        <div class="col-lg-3 col-12">
+            <div class="p-3">
+                <div class="col-12 custombox p-3 bg-blu">
+                    <h2 class="fs-6 fw-bold crow p-7 pl justify-content-center align-items-center text-black">
+                        Agent Caller ID :
+                    </h2>
+                    <div class="img2 p-2">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             width="50"
+                             height="50"
+                             fill="currentColor"
+                             class="bi bi-person-check"
+                             viewBox="0 0 16 16">
+                            <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
+                            <path d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z" />
+                        </svg>
+                    </div>
+                    <h2 class="fs-6 fw-bold crow p-7 justify-content-center align-items-center text-black">
+                        0719512080
+                    </h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!------------------------>
+<!-- Form Start -->
+<form asp-action="Create" asp-controller="Calls" method="post">
+    @{
+        string AgentNumber = HttpContextAccessor.HttpContext.Session.GetString("AgentNumber");
+    }
+    <input type="hidden" asp-for="AgentPhone" value="@AgentNumber" />
+    <input type="hidden" asp-for="OccurredAt" value="@DateTime.Now" />
+    <input type="hidden" asp-for="IsDeleted" value="false" />
+    <input type="hidden" id="Category" asp-for="Category" /> <!-- Hidden field for Category -->
+
+
+    <!--check boxes -->
+    <div class="container-fluid">
+        <div class="p-3 mb-1 border-bottom ">
+            <div class="container-fluid p-1">
+                <div class="col-lg-12 p-3 color1 h4 container-fluid servicetype">
+                    <div class="align-middle fw-bold fs-4 text-black">Connection Type :</div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input aa" type="checkbox" id="inlineCheckbox1" name="ConnectionType" value="Fiber" onclick="resetCheckboxes();">
+                        <label class="form-check-label" for="inlineCheckbox1">Fiber</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input aa" type="checkbox" id="inlineCheckbox2" name="ConnectionType" value="4G LTE Postpaid" onclick="resetCheckboxes();">
+                        <label class="form-check-label" for="inlineCheckbox2">4G LTE Postpaid</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input aa" type="checkbox" id="inlineCheckbox3" name="ConnectionType" value="4G LTE Prepaid" onclick="resetCheckboxes();">
+                        <label class="form-check-label" for="inlineCheckbox3">4G LTE Prepaid</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input aa" type="checkbox" id="inlineCheckbox4" name="ConnectionType" value="Mega/Copper" onclick="resetCheckboxes();">
+                        <label class="form-check-label" for="inlineCheckbox4">Mega/Copper</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="d-flex justify-content-center">
+        <div class="col-10 p-3 color2 rounded-3 shadow p-3 mb-5 bg-body h4">
+            <ul class="nav nav-pills nav-fill flex-column flex-sm-row">
+                <li class="nav-item" onclick="navFilter(1);">
+                    <a id="category1" class="nav-link navSelected rounded-pill text-dark" href="#" data-category="1" name="Category" value="Broadband" onclick="resetCheckboxes();">Broadband</a>
+                </li>
+                <li class="nav-item" onclick="navFilter(2);">
+                    <a id="category2" class="nav-link navNormal rounded-pill text-dark" href="#" data-category="2" name="Category" value="Peo tv" onclick="resetCheckboxes();">Peo tv</a>
+                </li>
+                <li class="nav-item" onclick="navFilter(3);">
+                    <a id="category3" class="nav-link navNormal rounded-pill text-dark" href="#" data-category="3" name="Category" value="Voice"  onclick="resetCheckboxes();" >Voice</a>
+                </li>
+                <li class="nav-item" onclick="navFilter(4);">
+                    <a id="category4" class="nav-link navNormal rounded-pill text-dark" href="#" data-category="4" name="Category" value="Billing" onclick="resetCheckboxes();">Billing</a>
+                </li>
+                <li class="nav-item" onclick="navFilter(5);">
+                    <a id="category5" class="nav-link navNormal rounded-pill text-dark" href="#" data-category="5" name="Category" value="Other Services" onclick="resetCheckboxes();">Other Services</a>
+                </li>
+                <li class="nav-item" onclick="navFilter(6);">
+                    <a id="category6" class="nav-link navNormal rounded-pill text-dark" href="#" data-category="6" name="Category" value="New Connection" onclick="resetCheckboxes();">New Connection</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Checkbox Section -->
+    <div class="container mt-2" >
+        <div class="row">
+            <div class="form-group" id="grp1" style="display:none;">
+                <div class="row">
+                    <div class="col-sm-4 col-md-4" id="complaint">
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="No internet (LOS bulb red)" id="issue1">
+                        <label for="issue1">No internet (LOS bulb red)</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="No internet (PON bulb blinking or off)" id="issue2">
+                        <label for="issue2">No internet (PON bulb blinking or off)</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="No internet (any other reason)" id="issue3">
+                        <label for="issue3">No internet (any other reason)</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Browsing slow" id="issue4">
+                        <label for="issue4">Browsing slow</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Speed issue" id="issue5">
+                        <label for="issue5">Speed issue</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="ONT router fault" id="issue6">
+                        <label for="issue6">ONT router fault</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="4G coverage" id="issue7">
+                        <label for="issue7">4G coverage</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Package issue" id="issue8">
+                        <label for="issue8">Package issue</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Usage complaint" id="issue9">
+                        <label for="issue9">Usage complaint</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Reload issue" id="issue10">
+                        <label for="issue10">Reload issue</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Fiber cable issue" id="issue11">
+                        <label for="issue11">Fiber cable issue</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Home Wi-Fi issue" id="issue12">
+                        <label for="issue12">Home Wi-Fi issue</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Repeat complaint" id="issue13">
+                        <label for="issue13">Repeat complaint</label><br>
+                    </div>
+                    <div class="col-sm-4 col-md-4" id="inquiry">
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Extra GB related" id="issue14">
+                        <label for="issue14">Extra GB related</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Add on related" id="issue15">
+                        <label for="issue15">Add on related</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Package upgrade" id="issue16">
+                        <label for="issue16">Package upgrade</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Package downgrade" id="issue17">
+                        <label for="issue17">Package downgrade</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Wi-Fi password change" id="issue18">
+                        <label for="issue18">Wi-Fi password change</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Broadband password change" id="issue19">
+                        <label for="issue19">Broadband password change</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="IP change" id="issue20">
+                        <label for="issue20">IP change</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Service termination" id="issue21">
+                        <label for="issue21">Service termination</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Product information/package information" id="issue22">
+                        <label for="issue22">Product information/package information</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Router configuration" id="issue23">
+                        <label for="issue23">Router configuration</label><br>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" id="grp2" style="display:none;">
+                <div class="row">
+                    <div class="col-sm-3 col-md-3" id="complaint">
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="No service" id="issue24">
+                        <label for="issue24">No service</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Poor picture quality" id="issue25">
+                        <label for="issue25">Poor picture quality</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="TV Remote issue" id="issue26">
+                        <label for="issue26">TV Remote issue</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="TSTV/Catch Up TV issue" id="issue27">
+                        <label for="issue27">TSTV/Catch Up TV issue</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="STB issue" id="issue28">
+                        <label for="issue28">STB issue</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Channel related" id="issue29">
+                        <label for="issue29">Channel related</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Repeat complaint" id="issue30">
+                        <label for="issue30">Repeat complaint</label><br>
+                    </div>
+                    <div class="col-sm-3 col-md-3" id="inquiry">
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Reconnection issue" id="issue31">
+                        <label for="issue31">Reconnection issue</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Service termination" id="issue32">
+                        <label for="issue32">Service termination</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Package upgrade" id="issue33">
+                        <label for="issue33">Package upgrade</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Package downgrade" id="issue34">
+                        <label for="issue34">Package downgrade</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Package information" id="issue35">
+                        <label for="issue35">Package information</label><br>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" id="grp3" style="display:none;">
+                <div class="row">
+                    <div class="col-sm-3 col-md-3" id="complaint">
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="No service" id="issue36">
+                        <label for="issue36">No service</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Call quality issue" id="issue37">
+                        <label for="issue37">Call quality issue</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Instrument fault" id="issue38">
+                        <label for="issue38">Instrument fault</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Repeat complaint" id="issue39">
+                        <label for="issue39">Repeat complaint</label><br>
+                    </div>
+                    <div class="col-sm-3 col-md-3" id="inquiry">
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Product/package information" id="issue40">
+                        <label for="issue40">Product/package information</label><br>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" id="grp4" style="display:none;">
+                <div class="row">
+                    <div class="col-sm-3 col-md-3" id="complaint">
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Bill complaint" id="issue41">
+                        <label for="issue41">Bill complaint</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Payment issue" id="issue42">
+                        <label for="issue42">Payment issue</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Reconnection issue" id="issue43">
+                        <label for="issue43">Reconnection issue</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Insurance product complaint" id="issue44">
+                        <label for="issue44">Insurance product complaint</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Repeat complaint" id="issue45">
+                        <label for="issue45">Repeat complaint</label><br>
+                    </div>
+                    <div class="col-sm-4 col-md-4" id="inquiry">
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Balance inquiry" id="issue46">
+                        <label for="issue46">Balance inquiry</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Other billing inquiries" id="issue47">
+                        <label for="issue47">Other billing inquiries</label><br>
+
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Resume request (Temporary reconnection)" id="issue48">
+                        <label for="issue48">Resume request (Temporary reconnection)</label><br>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" id="grp5" style="display:none;">
+                <div class="col-sm-3 col-md-3" id="complaint">
+                    <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="MySLT App Related" id="issue49">
+                    <label for="issue49">MySLT App Related</label><br>
+
+                    <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="PEO Mobile Related" id="issue50">
+                    <label for="issue50">PEO Mobile Related</label><br>
+
+                    <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="SLT GO Related" id="issue51">
+                    <label for="issue51">SLT GO Related</label><br>
+
+                    <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="Email Related" id="issue52">
+                    <label for="issue52">Email Related</label><br>
+                </div>
+            </div>
+            <div class="form-group" id="grp6" style="display:none;">
+                <div class="row">
+                    <div class="col-sm-3 col-md-3" id="complaint">
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="New Connection delay" id="issue53">
+                        <label for="issue53">New Connection delay</label><br>
+                    </div>
+                    <div class="col-sm-3 col-md-3" id="inquiry">
+                        <input class="form-check-input issues" type="checkbox" name="ProblemsList" value="New Connection request" id="issue54">
+                        <label for="issue54">New Connection request</label><br>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!---->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Select all the checkboxes in the "complaint" and "inquiry" divs
+            const complaintCheckboxes = document.querySelectorAll('#complaint .form-check-input');
+            const inquiryCheckboxes = document.querySelectorAll('#inquiry .form-check-input');
+            let lastSelectedGroup = null;
+
+            // Function to clear all checkboxes in a given group
+            function clearCheckboxes(checkboxes) {
+                checkboxes.forEach(function (checkbox) {
+                    checkbox.checked = false;
+                });
+            }
+
+            // Function to handle checkbox click event
+            function handleCheckboxClick(groupName) {
+                if (lastSelectedGroup && lastSelectedGroup !== groupName) {
+                    // Clear the previously selected group's checkboxes
+                    if (lastSelectedGroup === 'complaint') {
+                        clearCheckboxes(complaintCheckboxes);
+                    } else if (lastSelectedGroup === 'inquiry') {
+                        clearCheckboxes(inquiryCheckboxes);
+                    }
+                }
+                // Update the last selected group
+                lastSelectedGroup = groupName;
+            }
+
+            // Add click event listeners to "complaint" checkboxes
+            complaintCheckboxes.forEach(function (checkbox) {
+                checkbox.addEventListener('click', function () {
+                    handleCheckboxClick('complaint');
+                });
+            });
+
+            // Add click event listeners to "inquiry" checkboxes
+            inquiryCheckboxes.forEach(function (checkbox) {
+                checkbox.addEventListener('click', function () {
+                    handleCheckboxClick('inquiry');
+                });
+            });
+
+            // Add a listener for form submission to append the hidden input
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function () {
+                // Remove existing IssueType hidden inputs (if any)
+                const existingInputs = document.querySelectorAll('input[name="IssueType"]');
+                existingInputs.forEach(input => input.remove());
+
+                // Create and append the hidden input based on the last selected group
+                if (lastSelectedGroup) {
+                    const hiddenInput = document.createElement('input');
+                    hiddenInput.type = 'hidden';
+                    hiddenInput.name = 'IssueType';
+                    hiddenInput.value = lastSelectedGroup;
+                    form.appendChild(hiddenInput); // Append to the form
+                }
+            });
+        });
+    </script>
+    
+
+    <!-- Submit Button -->
+    <div class="container d-flex justify-content-end">
+        <div class="col text-center d-grid gap-2 col-3">
+            <button type="submit" class="btn btn-success rounded-pill" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .85rem;">
+                <h5>Submit</h5>
+            </button>
+        </div>
+    </div>
+    <br />
+    <!-- link to search page -->
+    <div class="container d-flex justify-content-end">
+        <div class="col text-center d-grid gap-2 col-3">
+            <a class="btn btn-primary rounded-pill" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .85rem;" asp-area="" asp-controller="Search" asp-action="Index">
+                <h5>Search</h5>
+            </a>
+        </div>
+    </div>
+</form>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+@* <script src="~/js/script.js"></script> *@
+<!--Sweet alert-->
+@* <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> *@
+<partial name="_Alert" />
+
+<script>
+    // Include existing JavaScript functions here...
+    window.onload = function () {
+        navFilter(1);
+        document.querySelector('#category1').classList.add('navSelected');
+    };
+
+    function allowOneCheckbox(checkboxes) {
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                if (checkbox.checked) {
+                    checkboxes.forEach(otherCheckbox => {
+                        if (otherCheckbox !== checkbox) {
+                            otherCheckbox.checked = false;
+                        }
+                    });
+                }
+            });
+        });
+    }
+    const checkboxes = document.querySelectorAll('.aa');
+    //const checkboxes = document.querySelectorAll('.form-check-input');
+    allowOneCheckbox(checkboxes);
+
+    // Track selected checkboxes
+    let selectedCheckboxes = [];
+
+    // When user clicks category links, pass value to form and deselect previous checkboxes (only deselect checkboxes that have the "CatMeow" ID, not all the checkboxes)
+    const categoryLinks = document.querySelectorAll('.nav-item a');
+    categoryLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            // Set the category hidden field's value
+            document.getElementById('Category').value = this.getAttribute('value');
+            // Highlight the selected category link
+            categoryLinks.forEach(l => l.classList.remove('navSelected'));
+            this.classList.add('navSelected');
+            // Deselect all previously selected checkboxes with id 'CatMeow'
+            const meowCheckboxes = document.querySelectorAll('#CatMeow');
+            meowCheckboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+        });
+    });
+
+    // Store selected checkboxes when clicked
+    const problemCheckboxes = document.querySelectorAll('.form-check-input');
+    problemCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                selectedCheckboxes.push(checkbox);
+            } else {
+                selectedCheckboxes = selectedCheckboxes.filter(item => item !== checkbox);
+            }
+        });
+    });
+
+    function navFilter(categoryId) {
+        // Hide all problem groups
+        const problemGroups = document.querySelectorAll('.form-group');
+        problemGroups.forEach(group => {
+            group.style.display = 'none';
+        });
+        // Display the relevant problem group based on the clicked category
+        const selectedGroup = document.getElementById(`grp${categoryId}`);
+        if (selectedGroup) {
+            selectedGroup.style.display = 'block';
+        }
+    }
+
+    
+
+</script>
+
+<script>
+    function resetCheckboxes() {
+        // Select all checkboxes with the class "issues" and uncheck them
+        const checkboxes = document.querySelectorAll('.issues');
+        checkboxes.forEach((checkbox) => {
+            checkbox.checked = false;
+        });
+    }
+</script>
